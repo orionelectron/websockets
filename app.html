@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        const websocket = new WebSocket('ws://localhost:8080');
+        websocket.onopen = () => {
+            console.log('connected to the server!!');
+            websocket.send('Hi everyone!!');
+        }
+        websocket.onerror = () => {
+            console.log("Error occured with websocket!");
+        }
+        websocket.onmessage = (e) =>{
+            console.log(e.data);
+        }
+    </script>
+</body>
+</html>
